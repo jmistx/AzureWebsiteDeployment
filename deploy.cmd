@@ -111,7 +111,7 @@ call dir
 call :ExecuteCmd !NPM_CMD! install --development
 
 echo "grunt dir: "
-call dir "%DEPLOYMENT_SOURCE%\node_modules\grunt-cli\"
+call dir "%DEPLOYMENT_SOURCE%\node_modules\"
 call :ExecuteCmd "%NODE_EXE%" node_modules\grunt-cli\bin\grunt
 IF !ERRORLEVEL! NEQ 0 goto error
 popd
