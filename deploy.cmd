@@ -101,17 +101,7 @@ IF EXIST "%DEPLOYMENT_SOURCE%\package.json" (
 
 :: 3. Build
 pushd "%DEPLOYMENT_SOURCE%"
-
-echo "Deployment source: "
-echo "%DEPLOYMENT_SOURCE%"
-echo "Current Directory: "
-echo "%~dp0%"
-echo "Current dirctory contains: "
-call dir
 call :ExecuteCmd !NPM_CMD! install --development
-
-echo "grunt dir: "
-call dir "%DEPLOYMENT_SOURCE%\node_modules\"
 call :ExecuteCmd "%NODE_EXE%" node_modules\grunt-cli\bin\grunt
 IF !ERRORLEVEL! NEQ 0 goto error
 popd
