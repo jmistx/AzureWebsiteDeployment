@@ -100,7 +100,7 @@ IF EXIST "%DEPLOYMENT_SOURCE%\package.json" (
 )
 
 :: 3. Build
-pushd %DEPLOYMENT_SOURCE%
+pushd "%DEPLOYMENT_SOURCE%"
 call :ExecuteCmd !NPM_CMD! install --development
 call :ExecuteCmd "%NODE_EXE%" node_modules\grunt-cli\bin\grunt
 IF !ERRORLEVEL! NEQ 0 goto error
